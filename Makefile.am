@@ -124,9 +124,8 @@ all-local:
 		--build-base $(shell readlink -f $(builddir))/build \
 		--verbose)
 
-# Fix for GNU/Linux
-if UNAME_IS_DEBIAN
-python_prefix = 
+if PREFIX_IS_USR
+python_prefix = --root=$(DESTDIR)
 else
 python_prefix = --prefix=$(DESTDIR)$(prefix)
 endif
